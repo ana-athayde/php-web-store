@@ -1,67 +1,89 @@
-# Projeto do Site de Programação para Internet
+# Web Programming Store Project
 
-Este é o repositório do projeto desenvolvido durante a disciplina de Programação para Internet no semestre 2018/2 do curso Técnico em Informática no IFSC Campus Lages. O projeto consiste em um site que foi desenvolvido em conjunto com o professor.
+This repository contains a web application developed as part of the Web Programming course. The project is a small online store focused on managing customers and products, and it was built using PHP, HTML, CSS, and a simple layered architecture inspired by object-oriented web application design.
 
-## Estrutura do Projeto
+## Project Overview
 
-O projeto está organizado em três principais diretórios:
+The objective of this project is to provide a basic system for registering and listing customers and products in a web environment. It follows a structure that separates the application into:
 
-- `controller`: Este diretório contém os arquivos relacionados ao controle do site. Os principais controladores são:
+- controller: handles the flow and coordination between user actions and business logic
+- model: contains the domain classes, business rules, and database access logic
+- view: contains pages displayed to the user and the styling files
 
-  - `ClienteController.class.php`: Este controlador lida com a lógica relacionada aos clientes no site.
-  
-  - `ProdutoController.class.php`: Este controlador cuida das operações relacionadas aos produtos no site.
+This is an academic project intended to practice concepts such as MVC-style organization, form handling, database connectivity, and interface creation.
 
-- `model`: Aqui estão os arquivos que descrevem a estrutura de dados e a lógica de negócios do site. Alguns dos principais arquivos no diretório `model` são:
+## Main Features
 
-  - `Cliente.class.php`: Descreve a estrutura da classe Cliente.
-  
-  - `ClienteBusiness.class.php`: Contém a lógica de negócios relacionada a clientes.
-  
-  - `ClienteDAO.class.php`: Oferece métodos para acessar os dados de clientes no banco.
-  
-  - `Produto.class.php`: Descreve a estrutura da classe Produto.
-  
-  - `ProdutoBusiness.class.php`: Contém a lógica de negócios relacionada a produtos.
-  
-  - `ProdutoDAO.class.php`: Oferece métodos para acessar os dados de produtos no banco.
+- Customer registration
+- Customer listing
+- Product registration
+- Product listing
+- Basic page navigation
+- Use of stylesheets for layout and visual presentation
+- Structured organization of classes and files to separate responsibilities
 
-- `view`: O diretório `view` contém os arquivos relacionados à interface do usuário. A estrutura é a seguinte:
+## Project Structure
 
-  - `clientes` Contém os arquivos relacionados à visualização dos clientes, incluindo páginas de cadastro e listagem.
-  
-  - `css`: Armazena os arquivos de estilos para o site. Alguns dos principais arquivos neste diretório são:
+The project is divided into three main folders:
 
-    - `estilo.css`: Folha de estilos principal do site.
-  
-    - `menu.css`: Estilos específicos para o menu do site.
-  
-  - `produtos`: Contém os arquivos relacionados à visualização dos produtos. Os principais arquivos neste diretório são:
+- `controller`: contains the controllers responsible for customer and product operations.
+  - `ClienteController.class.php`: manages actions related to customer registration and listing.
+  - `ProdutoController.class.php`: manages actions related to product registration and listing.
 
-    - `cadastrar.html`: Formulário de cadastro de produtos.
-  
-    - `listar.php`: Página de listagem de produtos.
-  
-    - `suporte_cadastrar.php`: Página de suporte ao cadastro de produtos.
-  
-    - `suporte_listar.php`: Página de suporte à listagem de produtos.
-  
-  - `index.html`: A página principal do site.
+- `model`: contains the data model, business logic, and database access classes.
+  - `Cliente.class.php`: defines the customer entity.
+  - `ClienteBusiness.class.php`: contains the business rules for customers.
+  - `ClienteDAO.class.php`: handles persistence and retrieval of customer data.
+  - `Produto.class.php`: defines the product entity.
+  - `ProdutoBusiness.class.php`: contains the business rules for products.
+  - `ProdutoDAO.class.php`: handles persistence and retrieval of product data.
+  - `DBConnection.class.php`: establishes the connection with the database.
 
-## Como Executar
+- `view`: contains the front-end pages and styles.
+  - `index.html`: main landing page of the site.
+  - `clientes/`: pages for customer registration and listing.
+  - `produtos/`: pages for product registration and listing.
+  - `css/`: style files used across the application.
+    - `estilo.css`: main design stylesheet.
+    - `menu.css`: menu styling.
 
-Para executar o projeto localmente, você pode seguir estas etapas:
+## How the Application Works
 
-1. Clone este repositório em sua máquina local:
+The application follows a simple, organized flow:
+
+1. The user interacts with a page in the `view` folder.
+2. The controller receives the submitted data.
+3. The controller creates an object from the model and sends it to the business layer.
+4. The business layer validates and delegates the operation to the DAO layer.
+5. The DAO communicates with the database through `DBConnection`.
+6. The result is returned to the user through the page flow.
+
+This separation of responsibilities helps keep the code easier to organize and maintain.
+
+## How to Run It Locally
+
+To run the project on your machine, follow these steps:
+
+1. Clone the repository:
 
    ```bash
-   git clone https://github.com/ana-athayde/loja_programacao_web
+   git clone https://github.com/ana-athayde/php-web-store
+   ```
 
-2. Configure um ambiente de servidor web local, se necessário, para executar o projeto.
+2. Place the project in a local web server directory that supports PHP, such as XAMPP, WAMP, or a similar environment.
 
-3. Abra o site no navegador
+3. Make sure the database configuration in the project matches your local environment.
 
-## Contribuições
-Este é um projeto acadêmico desenvolvido em colaboração com o professor. Contribuições, sugestões e comentários são bem-vindos.
+4. Open the project in a browser using your local server address.
+
+5. Access the main page or the relevant customer/product screen to test the features.
+
+## Notes
+
+This project was developed as part of a course assignment and serves as a practical example of a small web system built with PHP and classic web technologies. It can be used as a base for learning and improving application organization, form processing, and database integration.
+
+## Contributions
+
+This is an academic project developed in collaboration with the instructor. Suggestions, improvements, and feedback are welcome.
 
 
